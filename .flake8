@@ -1,0 +1,10 @@
+[flake8]
+ignore = E203, E266, E501, W503, F403, F401
+
+filename = *.py
+accept-encodings = utf-8
+max-line-length = 88
+max-complexity = 18
+select = B,C,E,F,W,T4,B9
+exclude = .git,__pycache__,.venv,.venv3,.venv2,.venv3.8,.venv3.8.5,.venv3.8.5.1,.venv3.
+per-file-ignore = core/core_tutorials/settings/templates/settings.dev.py : E501 F401

@@ -1,5 +1,7 @@
+.PHONY: install run-server migrate migrations superuser update
+
 install:
-	poetry install
+	poetry install --no-root
 
 run-server:
 	poetry run python -m core.manage runserver
@@ -13,4 +15,4 @@ migrations:
 superuser:
 	poetry run python -m core.manage createsuperuser
 
-update: install migrate migrations ;
+update: install migrations migrate
