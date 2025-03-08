@@ -1,20 +1,39 @@
+from typing import List
+
+
 DEBUG = False
 
 SECRET_KEY = NotImplemented
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = ['*']
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS: List[str] = []
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'corsheaders',
+    'rest_framework',
+    'django_filters',
+    'debug_toolbar',
+    'rest_framework_simplejwt',
+    'storages',
+    #apps
+
+
 ]
 
 MIDDLEWARE = [
@@ -46,6 +65,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.core_tutorials.wsgi.application'
+ASGI_APPLICATION = 'core.core_tutorials.asgi.application'
 
 
 # Database
@@ -53,8 +73,14 @@ WSGI_APPLICATION = 'core.core_tutorials.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'core_tutorials',
+        'USER': 'core_tutorials',
+        'PASSWORD': 'core_tutorials123',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'ATOMIC_REQUESTS': True,
+        'CONN_MAX_AGE': 0,
     }
 }
 

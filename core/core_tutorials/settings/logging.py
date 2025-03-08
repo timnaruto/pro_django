@@ -27,7 +27,8 @@ LOGGING = {
             'django.template',
             'django.utils',
             'django.db',
-            'django.db.backends'
+            'django.db.backends',
+            'core',
         )
     },
     'root': {
